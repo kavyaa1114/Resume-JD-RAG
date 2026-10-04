@@ -41,7 +41,6 @@ st.markdown(
         padding-bottom: 4rem;
     }
 
-    /* Main application text */
     .stApp p,
     .stApp label,
     .stApp span,
@@ -94,14 +93,48 @@ st.markdown(
        ====================================================== */
 
     [data-testid="stFileUploader"] {
-        background-color: white;
-        border: 1px solid #e2e4ea;
-        border-radius: 12px;
-        padding: 8px;
+        background-color: transparent !important;
+        border: none !important;
+        padding: 0 !important;
     }
 
-    [data-testid="stFileUploader"] * {
+    [data-testid="stFileUploaderDropzone"] {
+        background-color: #ffffff !important;
+        border: 1px dashed #cfd4df !important;
+        border-radius: 10px !important;
+        padding: 18px !important;
+        min-height: 90px !important;
+    }
+
+    [data-testid="stFileUploaderDropzone"] * {
+        color: #4a5060 !important;
+    }
+
+    [data-testid="stFileUploaderDropzone"] button {
+        background-color: #f1f3f7 !important;
+        border: 1px solid #d7dbe4 !important;
+        border-radius: 8px !important;
         color: #30333d !important;
+        font-weight: 600 !important;
+    }
+
+    [data-testid="stFileUploaderDropzone"] button:hover {
+        background-color: #e8ebf1 !important;
+        border-color: #c5cad5 !important;
+    }
+
+    [data-testid="stFileUploaderDropzone"] svg {
+        color: #596170 !important;
+        fill: #596170 !important;
+    }
+
+
+    /* ======================================================
+       UPLOADED FILE SUCCESS MESSAGE
+       ====================================================== */
+
+    [data-testid="stAlert"] {
+        border-radius: 8px !important;
     }
 
 
@@ -334,9 +367,6 @@ with button_center:
 # ============================================================
 
 def extract_section(text, section_name, next_sections=None):
-    """
-    Extract one section from the LLM response.
-    """
 
     if not text:
         return ""
@@ -373,9 +403,6 @@ def extract_section(text, section_name, next_sections=None):
 
 
 def parse_items(section_text):
-    """
-    Extract bullet and numbered items.
-    """
 
     if not section_text:
         return []
@@ -418,16 +445,6 @@ def parse_items(section_text):
 
 
 def split_requirement(item):
-    """
-    Split:
-
-    Requirement — Evidence
-
-    into:
-
-    Requirement
-    Evidence
-    """
 
     item = item.replace("✓", "", 1)
     item = item.replace("⚠", "", 1)
@@ -449,10 +466,6 @@ def split_requirement(item):
 
 
 def clean_text(text):
-    """
-    Remove accidental HTML/code formatting if an LLM
-    response ever contains it.
-    """
 
     if not text:
         return ""
@@ -472,7 +485,6 @@ def clean_text(text):
         ""
     )
 
-    # Remove HTML tags if they somehow appear.
     text = re.sub(
         r"<[^>]+>",
         "",
@@ -483,12 +495,6 @@ def clean_text(text):
 
 
 def parse_evidence(evidence_text):
-    """
-    Parse evidence formatted as:
-
-    **Requirement**
-    Candidate demonstrated this through...
-    """
 
     if not evidence_text:
         return []
@@ -562,10 +568,6 @@ if analyze_button:
 
             try:
 
-                # ------------------------------------------------
-                # TEMPORARY RESUME FILE
-                # ------------------------------------------------
-
                 with tempfile.NamedTemporaryFile(
                     delete=False,
                     suffix=".pdf"
@@ -578,10 +580,6 @@ if analyze_button:
                     resume_path = resume_temp.name
 
 
-                # ------------------------------------------------
-                # TEMPORARY JD FILE
-                # ------------------------------------------------
-
                 with tempfile.NamedTemporaryFile(
                     delete=False,
                     suffix=".pdf"
@@ -593,10 +591,6 @@ if analyze_button:
 
                     jd_path = jd_temp.name
 
-
-                # ------------------------------------------------
-                # RUN RAG PIPELINE
-                # ------------------------------------------------
 
                 result = analyze_resume(
                     resume_path,
@@ -617,10 +611,6 @@ if analyze_button:
 
 
             finally:
-
-                # ------------------------------------------------
-                # CLEAN UP TEMPORARY FILES
-                # ------------------------------------------------
 
                 if (
                     resume_path
