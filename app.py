@@ -32,12 +32,21 @@ st.markdown(
 
     .stApp {
         background-color: #f7f8fc;
+        color: #20222d;
     }
 
     .block-container {
         max-width: 1180px;
         padding-top: 4rem;
         padding-bottom: 4rem;
+    }
+
+    /* Main application text */
+    .stApp p,
+    .stApp label,
+    .stApp span,
+    .stApp div {
+        color: #30333d;
     }
 
 
@@ -49,8 +58,14 @@ st.markdown(
         background-color: #f0f2f7;
     }
 
-    [data-testid="stSidebar"] .stMarkdown {
-        color: #30333d;
+    [data-testid="stSidebar"] * {
+        color: #30333d !important;
+    }
+
+    [data-testid="stSidebar"] h1,
+    [data-testid="stSidebar"] h2,
+    [data-testid="stSidebar"] h3 {
+        color: #181a23 !important;
     }
 
 
@@ -61,7 +76,7 @@ st.markdown(
     .hero-title {
         font-size: 42px;
         font-weight: 750;
-        color: #181a23;
+        color: #181a23 !important;
         line-height: 1.1;
         margin-top: 4px;
         margin-bottom: 8px;
@@ -69,7 +84,7 @@ st.markdown(
 
     .hero-subtitle {
         font-size: 16px;
-        color: #707583;
+        color: #606675 !important;
         margin-bottom: 30px;
     }
 
@@ -85,6 +100,10 @@ st.markdown(
         padding: 8px;
     }
 
+    [data-testid="stFileUploader"] * {
+        color: #30333d !important;
+    }
+
 
     /* ======================================================
        BUTTONS
@@ -95,6 +114,10 @@ st.markdown(
         min-height: 46px;
         font-size: 15px;
         font-weight: 650;
+    }
+
+    .stButton > button * {
+        color: white !important;
     }
 
 
@@ -126,16 +149,24 @@ st.markdown(
     .result-heading {
         font-size: 26px;
         font-weight: 720;
-        color: #20222d;
+        color: #20222d !important;
         margin-bottom: 5px;
     }
 
     .result-subheading {
-        color: #777d8b;
+        color: #777d8b !important;
         font-size: 14px;
         margin-bottom: 20px;
     }
 
+
+    /* ======================================================
+       HEADINGS
+       ====================================================== */
+
+    h1, h2, h3, h4, h5, h6 {
+        color: #20222d !important;
+    }
 
     </style>
     """,
