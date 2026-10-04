@@ -2,6 +2,8 @@
 
 ### AI Recruiting Intelligence
 
+[🚀 Live Demo](https://resume-jd-rag.streamlit.app) | [💻 GitHub](https://github.com/kavyaa1114/Resume-JD-RAG)
+
 A RAG-powered recruiter assistant that analyzes a candidate's resume against a specific job description and generates concise, evidence-grounded insights.
 
 ## Overview
