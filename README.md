@@ -1,4 +1,4 @@
-# Resume-JD-RAG
+# TalentLens
 
 ### AI Recruiting Intelligence
 
@@ -10,7 +10,7 @@ A RAG-powered recruiter assistant that analyzes a candidate's resume against a s
 
 Recruiters often need to quickly determine how a candidate's experience aligns with the requirements of a particular role.
 
-Resume-JD-RAG uses Retrieval-Augmented Generation (RAG) to retrieve relevant evidence from a candidate's resume based on the requirements of a job description and presents the findings as recruiter-focused decision support.
+TalentLens uses Retrieval-Augmented Generation (RAG) to retrieve relevant evidence from a candidate's resume based on the requirements of a job description and presents the findings as recruiter-focused decision support.
 
 The system does not assign an ATS score or make a hiring decision.
 
